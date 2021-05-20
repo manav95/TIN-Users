@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://gatsby-drupal.ddev.local/`,
+        baseUrl: `https://tin-users.ddev.site//`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
