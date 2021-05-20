@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '26da43159822983219b15c7c4ed4d493395e9784',
     'name' => 'drupal/recommended-project',
   ),
   'versions' => 
@@ -143,6 +143,15 @@
       array (
         0 => '^1.2',
       ),
+    ),
+    'defuse/php-encryption' => 
+    array (
+      'pretty_version' => 'v2.3.1',
+      'version' => '2.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '77880488b9954b7884c25555c2a0ea9e7053f9d2',
     ),
     'dflydev/dot-access-data' => 
     array (
@@ -305,6 +314,15 @@
       array (
         0 => '9.1.8',
       ),
+    ),
+    'drupal/consumers' => 
+    array (
+      'pretty_version' => '1.11.0',
+      'version' => '1.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.11',
     ),
     'drupal/contact' => 
     array (
@@ -678,6 +696,15 @@
         0 => '9.1.8',
       ),
     ),
+    'drupal/jsonapi_extras' => 
+    array (
+      'pretty_version' => '3.17.0',
+      'version' => '3.17.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-3.17',
+    ),
     'drupal/language' => 
     array (
       'replaced' => 
@@ -843,12 +870,12 @@
     ),
     'drupal/recommended-project' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '26da43159822983219b15c7c4ed4d493395e9784',
     ),
     'drupal/responsive_image' => 
     array (
@@ -898,6 +925,15 @@
       array (
         0 => '9.1.8',
       ),
+    ),
+    'drupal/simple_oauth' => 
+    array (
+      'pretty_version' => '5.0.4',
+      'version' => '5.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5.0.4',
     ),
     'drupal/standard' => 
     array (
@@ -1027,6 +1063,15 @@
       ),
       'reference' => '3fd9f7e62ffb7f221e4be8151a738529345d22d5',
     ),
+    'e0ipso/shaper' => 
+    array (
+      'pretty_version' => '1.2.4',
+      'version' => '1.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7d73018ec4fe8de9730dfe755067cc02460e1a38',
+    ),
     'egulias/email-validator' => 
     array (
       'pretty_version' => '2.1.22',
@@ -1090,6 +1135,15 @@
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
     ),
+    'justinrainbow/json-schema' => 
+    array (
+      'pretty_version' => '5.2.10',
+      'version' => '5.2.10.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b',
+    ),
     'laminas/laminas-diactoros' => 
     array (
       'pretty_version' => '2.5.0',
@@ -1135,6 +1189,15 @@
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
     ),
+    'lcobucci/jwt' => 
+    array (
+      'pretty_version' => '3.4.5',
+      'version' => '3.4.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '511629a54465e89a31d3d7e4cf0935feab8b14c1',
+    ),
     'league/container' => 
     array (
       'pretty_version' => '2.5.0',
@@ -1143,6 +1206,38 @@
       array (
       ),
       'reference' => '8438dc47a0674e3378bcce893a0a04d79a2c22b3',
+    ),
+    'league/event' => 
+    array (
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd2cc124cf9a3fab2bb4ff963307f60361ce4d119',
+    ),
+    'league/oauth2-server' => 
+    array (
+      'pretty_version' => '8.1.1',
+      'version' => '8.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '09f22e8121fa1832962dba18213b80d4267ef8a3',
+    ),
+    'league/oauth2server' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '*',
+      ),
+    ),
+    'lncd/oauth2' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '*',
+      ),
     ),
     'masterminds/html5' => 
     array (
@@ -1168,6 +1263,15 @@
       array (
         0 => '~2.0',
       ),
+    ),
+    'paragonie/random_compat' => 
+    array (
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
     ),
     'pear/archive_tar' => 
     array (
@@ -1324,6 +1428,15 @@
       array (
       ),
       'reference' => 'a4faaa6f532c6086bc66c29e1bc6c29593e1ca7c',
+    ),
+    'steverhoades/oauth2-openid-connect-server' => 
+    array (
+      'pretty_version' => 'v1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b38b082faa905d5feb2faf95add5f4a3b2cb7542',
     ),
     'symfony-cmf/routing' => 
     array (
