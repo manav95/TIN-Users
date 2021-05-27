@@ -28,6 +28,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `https://tin-users.ddev.site//`,
+        apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     {
       resolve: `gatsby-source-drupal`,
