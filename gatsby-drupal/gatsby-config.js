@@ -29,6 +29,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://gatsby-drupal.ddev.local/`,
+        apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+      },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
