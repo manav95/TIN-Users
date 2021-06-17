@@ -23,6 +23,7 @@
         "drupal/external_data_source": "^3.0",
         "drupal/jsonapi_extras": "^3.17",
         "drupal/mailchimp": "^2.0",
+        "drupal/migrate_plus": "^5.1",
         "drupal/simple_oauth": "^5.0",
         "drush/drush": "^10.5",
         "thinkshout/mailchimp-api-php": "^2.1"

@@ -1,28 +1,38 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from 'react'
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Layout from '../components/layout'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(3, 2),
+  },
+}));
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hello Star People</h1>
-    <p>Lets blast off you all.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = (props) => {
+  const classes = useStyles();
 
-export default IndexPage
+  return (
+    <Layout>
+      <Paper className={classes.root}>
+        <Typography variant="h2">Hi people</Typography>
+        <Typography variant="subtitle1" paragraph>
+          Welcome to your new Gatsby site using <a href="https://material-ui.com">Material UI</a> for the UI.
+        </Typography>
+        <Typography variant="subtitle1" paragraph>
+          Now go build something great.
+        </Typography>
+        <Link to="/page-2/">Go to page 2</Link>
+      </Paper>
+    </Layout>
+  );
+};
+
+IndexPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default IndexPage;
