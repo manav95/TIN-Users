@@ -1,0 +1,14 @@
+type: module
+name: Entity Import Plus
+description: Add additional import plugins that are related to contributed modules.
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Migration
+dependencies:
+  - migrate_plus
+  - entity_import
+
+# Information added by Drupal.org packaging script on 2020-09-23
+version: '8.x-1.0-alpha5'
+project: 'entity_import'
+datestamp: 1600828373

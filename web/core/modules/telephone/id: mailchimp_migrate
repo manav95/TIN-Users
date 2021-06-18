@@ -1,0 +1,55 @@
+id: mailchimp_migrate
+label: 'Mailchimp Migration'
+migration_tags: null
+migration_group: migrate_mailchimp
+source:
+  plugin: url
+  # Specifies the http fetcher plugin.
+  data_fetcher_plugin: http
+  # Specifies the JSON parser plugin.
+  data_parser_plugin: json
+  authentication:
+    plugin: basic
+    username: 'hamster'
+    password: 'GummyBear2389'
+  headers:
+    Accept: 'application/json; charset=utf-8'
+    Content-Type: 'application/json'
+  # One or more URLs from which to fetch the source data.
+  urls: https:/...some.source/object.json?className=/object/structure/product/sku&~attributes=name_fi product_id product_id_for_sku ean_code retail_price_vat status_desc hidden_prod combined_long_desc_fi
+  # For JSON, item_selector is the xpath used to select
+  # our source items (tags in this case).
+  item_selector: object
+  # For each source field, we specify a selector,
+  # the field name which will be used to access the field in the
+  # process configuration, and a label to document the meaning
+  # of the field in front-ends.
+  fields:
+    -
+      name: variation_product_id
+      label: 'Product Id'
+      selector: /attributes/product_id/value
+    -
+      name: name_fi
+      label: 'Name FI'
+      selector: /attributes/name_fi/value
+    -
+      name: product_id_for_sku
+      label: 'Product Id for SKU'
+      selector: /attributes/product_id_for_sku/value
+    -
+      name: hidden_product
+      label: 'Published'
+      selector: /attributes/hidden_prod/value
+    -
+      name: combined_long_desc_fi
+      label: 'Combined long description'
+      selector: /attributes/combined_long_desc_fi/value
+   # continues...
+
+  # Under ids, we specify which of the source fields retrieved
+  # above (product_id in this case) represent our unique
+  # identifier for the item, and the schema type for that field.
+  ids:
+    variation_product_id:
+      type: string
