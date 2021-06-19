@@ -26,6 +26,7 @@
         "drupal/migrate_plus": "^5.1",
         "drupal/simple_oauth": "^5.0",
         "drush/drush": "^10.5",
+        "league/csv": "^9.7",
         "thinkshout/mailchimp-api-php": "^2.1"
     },
     "conflict": {

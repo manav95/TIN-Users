@@ -56,6 +56,7 @@ return array(
     'Mailchimp\\' => array($vendorDir . '/thinkshout/mailchimp-api-php/src'),
     'League\\OAuth2\\Server\\' => array($vendorDir . '/league/oauth2-server/src'),
     'League\\Event\\' => array($vendorDir . '/league/event/src'),
+    'League\\Csv\\' => array($vendorDir . '/league/csv/src'),
     'League\\Container\\' => array($vendorDir . '/league/container/src'),
     'Lcobucci\\JWT\\' => array($vendorDir . '/lcobucci/jwt/src'),
     'Laminas\\ZendFrameworkBridge\\' => array($vendorDir . '/laminas/laminas-zendframework-bridge/src'),
