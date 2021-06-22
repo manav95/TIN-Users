@@ -33,6 +33,10 @@ module.exports = {
       options: {
         baseUrl: `https://tin-users.ddev.site/`,
         apiBase: `jsonapi`,
+        basicAuth: {
+          username: 'admin',
+          password: 'my-password',
+        },
       },
     },
     `gatsby-plugin-gatsby-cloud`,

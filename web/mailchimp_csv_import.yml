@@ -1,0 +1,79 @@
+uuid: 1bcec3e7-0a49-4473-87a2-6dca09b91aba
+id: mailchimp_csv_import
+label: Import mailchimp
+migration_group: default
+
+source:
+  plugin: 'csv'
+  # Full path to the file.
+  path: mailchimp_users.csv
+  # Column delimiter. Comma (,) by default.
+  delimiter: ','
+  # Field enclosure. Double quotation marks (") by default.
+  enclosure: '"'
+  # The row to be used as the CSV header (indexed from 0),
+  # or null if there is no header row.
+  header_offset: 0
+  # The column(s) to use as a key. Each column specified will
+  # create an index in the migration table and too many columns
+  # may throw an index size error.
+  ids:
+    - mail
+  # Here we identify the columns of interest in the source file.
+  # Each numeric key is the 0-based index of the column.
+  # For each column, the key below is the field name assigned to
+  # the data on import, to be used in field mappings below.
+  # The label value is a user-friendly string for display by the
+  # migration UI.
+  fields:
+    0:
+      name: mail
+      label: 'email'
+    1:
+      name: first_name
+      label: ‘first_name'
+    2:
+      name: last_name
+      label: ‘last_name'
+    3:
+      name: address
+      label: ‘address'
+    4:
+      name: phone_number
+      label: ‘phone'
+    5:
+       name: birthday
+       label: ‘birthday'
+    6:
+       name: website
+       label: ‘website'
+    7:
+       name: summary
+       label: ‘summary'
+    8:
+       name: notes
+       label: ‘notes'
+    9:
+       name: talent
+       label: ‘talent'
+    10:
+       name: contribution
+       label: ‘contribution'
+    11:
+       name: rating
+       label: 'rating'
+process:
+  name: mail
+  mail: mail
+  field_first_name: first_name
+  field_last_name: last_name
+  field_address: address
+  field_phone: phone_number
+  field_birthday: birthday
+  field_bio: summary
+  field_notes: notes
+  field_skills: talent
+  field_contributions: contribution
+  field_rating: rating
+destination:
+  plugin: entity:user
