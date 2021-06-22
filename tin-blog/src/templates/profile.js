@@ -16,16 +16,15 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileTemplate = (props) => {
   const classes = useStyles();
-  console.log(props)
-  const { nodeProfile: profile } = props.data;
+  console.log("Props")
   return (
     <Layout>
       <Helmet
-        displayName={`Name: ${profile.display_name}`}
+        displayName={`Name: ${props.data.display_name}`}
       />
       <Paper className={classes.root}>
         <Profile
-          displayName={profile.display_name}
+          displayName={props.data.display_name}
         />
       </Paper>
     </Layout>
@@ -35,14 +34,12 @@ const ProfileTemplate = (props) => {
 export default ProfileTemplate;
 
 export const query = graphql`
-  query ProfileTemplate($drupal_id: String!) {
-    userUser(drupal_id: {eq: $drupal_id}) {
+  query ProfileTemplate($id: String!) {
+    userUser(id: {eq: $id}) {
         id
         display_name
         drupal_id
         field_address
-        field_birthday
-        field_contributions { processed }
         field_first_name
         field_last_name
         field_notes

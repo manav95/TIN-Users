@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-source-drupal`,
       options: {
         baseUrl: `https://tin-users.ddev.site/`,
-        apiBase: `jsonapi`,
+        apiBase: `jsonapi/user/user`,
         basicAuth: {
           username: 'admin',
           password: 'my-password',

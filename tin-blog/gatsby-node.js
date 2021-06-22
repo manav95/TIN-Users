@@ -19,8 +19,6 @@
             display_name
             drupal_id
             field_address
-            field_birthday
-            field_contributions { processed }
             field_first_name
             field_last_name
             field_notes
@@ -41,7 +39,7 @@
           context: {
             // Data passed to context is available in page queries as GraphQL
             // variables.
-            drupal_id: node.drupal_id,
+            id: node.id,
             displayName: node.display_name,
             firstName: node.field_first_name ? node.field_first_name : 'TestFirst',
             lastName: node.field_last_name ? node.field_last_name : 'TestLast',
@@ -50,8 +48,7 @@
             birthday: node.field_birthday ? node.field_birthday : 'TestBday',
             bio: node.field_bio ? node.field_bio : 'TestBio',
             notes: node.field_notes ? node.field_notes : 'TestNotes',
-            talent: 'Parable of Talents',
-            contribution: (node.field_contributions) ? node.field_contributions.processed : 'TestContrib'
+            talent: 'Parable of Talents'
           },
         })
       });
