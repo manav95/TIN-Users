@@ -23,6 +23,10 @@
             field_last_name
             field_notes
             field_phone
+            field_biography
+            field_birthday
+            field_talents
+            field_contributions
           }
         }
       }
@@ -46,7 +50,7 @@
             address: node.field_address ? node.field_address : 'TestAddr',
             phone: node.field_phone ? node.field_phone : 'TestPhone',
             birthday: node.field_birthday ? node.field_birthday : 'TestBday',
-            bio: node.field_bio ? node.field_bio : 'TestBio',
+            bio: node.field_biography ? node.field_biography : 'TestBiography',
             notes: node.field_notes ? node.field_notes : 'TestNotes',
             talent: 'Parable of Talents'
           },

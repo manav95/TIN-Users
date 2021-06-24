@@ -36,14 +36,18 @@ export default ProfileTemplate;
 export const query = graphql`
   query ProfileTemplate($id: String!) {
     userUser(id: {eq: $id}) {
-        id
-        display_name
-        drupal_id
-        field_address
-        field_first_name
-        field_last_name
-        field_notes
-        field_phone
+      id
+      display_name
+      drupal_id
+      field_address
+      field_first_name
+      field_last_name
+      field_notes
+      field_phone
+      field_biography
+      field_birthday
+      field_talents
+      field_contributions
     }
   }
 `;
