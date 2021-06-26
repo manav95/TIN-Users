@@ -42,12 +42,6 @@ export const query = graphql`
       field_address
       field_first_name
       field_last_name
-      field_notes
-      field_phone
-      field_biography
-      field_birthday
-      field_talents
-      field_contributions
     }
   }
 `;

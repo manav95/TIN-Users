@@ -59,9 +59,6 @@ source:
     10:
        name: contribution
        label: ‘contribution'
-    11:
-       name: rating
-       label: 'rating'
 process:
   name: mail
   mail: mail
@@ -69,11 +66,16 @@ process:
   field_last_name: last_name
   field_address: address
   field_phone: phone_number
-  field_birthday: birthday
-  field_bio: summary
+  field_biography: summary
   field_notes: notes
-  field_skills: talent
-  field_contributions: contribution
-  field_rating: rating
+  field_talents:
+    plugin: explode
+    source: talent
+    delimiter: ,
+  field_contributions:
+    plugin: explode
+    source: contribution
+    delimiter: ,
+  field_birthday: birthday
 destination:
   plugin: entity:user
