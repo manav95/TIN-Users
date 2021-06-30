@@ -4,6 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
+import ProfileListWrapper from '../Profile/ProfileList';
 
 const Profile = (props) => (
   <>
@@ -40,7 +41,7 @@ const Profile = (props) => (
       <ListItemText primary="Contribution" secondary={props.contribution}/>
     </ListItem>
     </GridList>
-
+   <ProfileListWrapper>Additional User Profiles</ProfileListWrapper>
   </>
 );
 

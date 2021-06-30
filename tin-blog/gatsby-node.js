@@ -38,7 +38,7 @@
     `).then(result => {
       result.data.allUserUser.nodes.forEach(node => {
         console.log(node)
-        let path_alias = node.id
+        let path_alias = node.display_name
         createPage({
           // This is the path, or route, at which the page will be visible.
           path: path_alias,

@@ -25,6 +25,16 @@ const ProfileTemplate = (props) => {
       <Paper className={classes.root}>
         <Profile
           displayName={props.pageContext.displayName}
+          firstName={props.pageContext.firstName}
+          lastName={props.pageContext.lastName}
+          bio={props.pageContext.bio}
+          address={props.pageContext.address}
+          phone={props.pageContext.phone}
+          birthday={props.pageContext.birthday}
+          notes={props.pageContext.notes}
+          talent={props.pageContext.talent}
+          gender={props.pageContext.gender}
+          contributions={props.pageContext.contributions}
         />
       </Paper>
     </Layout>
