@@ -20,11 +20,11 @@ const ProfileTemplate = (props) => {
   return (
     <Layout>
       <Helmet
-        displayName={`Name: ${props.data.display_name}`}
+        displayName={`Name: ${props.pageContext.displayName}`}
       />
       <Paper className={classes.root}>
         <Profile
-          displayName={props.data.display_name}
+          displayName={props.pageContext.displayName}
         />
       </Paper>
     </Layout>
