@@ -21,6 +21,17 @@
             field_address
             field_first_name
             field_last_name
+            field_gender
+            field_notes
+            field_talents {
+              processed
+            }
+            field_phone
+            field_biography
+            field_birthday
+            field_contributions {
+              processed
+            }
           }
         }
       }
@@ -46,7 +57,9 @@
             birthday: node.field_birthday ? node.field_birthday : 'TestBday',
             bio: node.field_biography ? node.field_biography : 'TestBiography',
             notes: node.field_notes ? node.field_notes : 'TestNotes',
-            talent: 'Parable of Talents'
+            talent: node.field_talents ? node.field_talents.processed : '',
+            gender: node.field_gender ? node.field_gender : '',
+            contributions: node.field_contributions ? node.field_contributions.processed : ''
           },
         })
       });

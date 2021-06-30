@@ -34,6 +34,9 @@ const Profile = (props) => (
       <ListItemText primary="Talent" secondary={props.talent}/>
     </ListItem>
     <ListItem>
+      <ListItemText primary="Gender" secondary={props.gender}/>
+    </ListItem>
+    <ListItem>
       <ListItemText primary="Contribution" secondary={props.contribution}/>
     </ListItem>
     </GridList>
@@ -51,6 +54,7 @@ Profile.propTypes = {
   birthday: PropTypes.object,
   notes: PropTypes.string,
   talent: PropTypes.object,
+  gender: PropTypes.string,
   contribution: PropTypes.object,
 };
 

@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileTemplate = (props) => {
   const classes = useStyles();
-  console.log("Props")
+  console.log(props);
   return (
     <Layout>
       <Helmet
@@ -42,6 +42,17 @@ export const query = graphql`
       field_address
       field_first_name
       field_last_name
+      field_gender
+      field_notes
+      field_talents {
+        processed
+      }
+      field_phone
+      field_biography
+      field_birthday
+      field_contributions {
+        processed
+      }
     }
   }
 `;
