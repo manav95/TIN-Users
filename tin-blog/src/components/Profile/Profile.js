@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import GridList from '@material-ui/core/GridList';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import ProfileListWrapper from '../Profile/ProfileList';
 
 const Profile = (props) => (
-  <>
+   <>
     <Typography variant="h2" paragraph>{props.displayName}</Typography>
-    <GridList cols={10} cellHeight="auto">
+    <GridList cols={11} cellHeight="auto">
+    {props.picture && <ListItemAvatar>
+          <Avatar alt="Manifesting......." src={props.picture.localFile.childImageSharp.fluid} />
+    </ListItemAvatar>}
       <ListItem>
       <ListItemText primary="First Name" secondary={props.firstName} />
     </ListItem>
@@ -41,7 +45,6 @@ const Profile = (props) => (
       <ListItemText primary="Contribution" secondary={props.contribution}/>
     </ListItem>
     </GridList>
-   <ProfileListWrapper>Additional User Profiles</ProfileListWrapper>
   </>
 );
 
@@ -52,11 +55,12 @@ Profile.propTypes = {
   bio: PropTypes.string,
   address: PropTypes.string,
   phone: PropTypes.string,
-  birthday: PropTypes.object,
+  birthday: PropTypes.string,
   notes: PropTypes.string,
   talent: PropTypes.object,
   gender: PropTypes.string,
   contribution: PropTypes.object,
+  picture: PropTypes.object
 };
 
 export default Profile;

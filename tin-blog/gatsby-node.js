@@ -23,6 +23,17 @@
             field_last_name
             field_gender
             field_notes
+            relationships {
+              user_picture {
+                 localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1100) {
+                      originalImg
+                    }
+                  }
+                 }
+               }
+             }
             field_talents {
               processed
             }
@@ -50,16 +61,17 @@
             // variables.
             id: node.id,
             displayName: node.display_name,
-            firstName: node.field_first_name ? node.field_first_name : 'TestFirst',
-            lastName: node.field_last_name ? node.field_last_name : 'TestLast',
-            address: node.field_address ? node.field_address : 'TestAddr',
-            phone: node.field_phone ? node.field_phone : 'TestPhone',
-            birthday: node.field_birthday ? node.field_birthday : 'TestBday',
-            bio: node.field_biography ? node.field_biography : 'TestBiography',
-            notes: node.field_notes ? node.field_notes : 'TestNotes',
+            firstName: node.field_first_name ? node.field_first_name : '',
+            lastName: node.field_last_name ? node.field_last_name : '',
+            address: node.field_address ? node.field_address : '',
+            phone: node.field_phone ? node.field_phone : '',
+            birthday: node.field_birthday ? node.field_birthday : '',
+            bio: node.field_biography ? node.field_biography : '',
+            notes: node.field_notes ? node.field_notes : '',
             talent: node.field_talents ? node.field_talents.processed : '',
             gender: node.field_gender ? node.field_gender : '',
-            contributions: node.field_contributions ? node.field_contributions.processed : ''
+            contributions: node.field_contributions ? node.field_contributions.processed : '',
+            picture: node.relationships ? node.relationships.user_picture : null
           },
         })
       });

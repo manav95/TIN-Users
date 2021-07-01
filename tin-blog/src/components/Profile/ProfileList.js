@@ -16,17 +16,19 @@ const ProfileListWrapper = () => (
         }
       }
     `}
-    render={data => <ProfileList profiles={data.allUserUser.nodes} />}
+    render={data => {
+      console.log(data);
+    <ProfileList profiles={data.allUserUser.nodes} />}}
   />
 );
 
 const ProfileList = ({profiles}) => (
   <ul>
     {
-      profiles.map(({ node: profile }) => (
+      profiles.map(profile => (
         <li key={profile.display_name}>
           <Link to={profile.display_name}>
-            {profile.field_first_name+profile.field_last_name}
+            {profile.field_first_name + ' ' + profile.field_last_name}
           </Link>
         </li>
       ))
@@ -37,13 +39,11 @@ const ProfileList = ({profiles}) => (
 ProfileList.propTypes = {
   profiles: PropTypes.arrayOf(
     PropTypes.shape({
-      node: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        display_name: PropTypes.string.isRequired,
-        field_first_name: PropTypes.string.isRequired,
-        field_last_name: PropTypes.string.isRequired
-      }).isRequired,
-    }))
-};
+        id: PropTypes.string,
+        display_name: PropTypes.string,
+        field_first_name: PropTypes.string,
+        field_last_name: PropTypes.string
+      }).isRequired
+  )};
 
 export default ProfileListWrapper;

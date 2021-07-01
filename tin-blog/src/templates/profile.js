@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Layout from '../components/layout';
 import Profile from '../components/Profile/Profile';
 import { graphql } from 'gatsby';
+import ProfileListWrapper from '../components/Profile/ProfileList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,7 +17,6 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileTemplate = (props) => {
   const classes = useStyles();
-  console.log(props);
   return (
     <Layout>
       <Helmet
@@ -35,8 +35,10 @@ const ProfileTemplate = (props) => {
           talent={props.pageContext.talent}
           gender={props.pageContext.gender}
           contributions={props.pageContext.contributions}
+          picture={props.pageContext.picture}
         />
       </Paper>
+      <ProfileListWrapper>Additional User Profiles</ProfileListWrapper>
     </Layout>
   )
 };
@@ -60,6 +62,17 @@ export const query = graphql`
       field_phone
       field_biography
       field_birthday
+      relationships {
+        user_picture {
+           localFile {
+            childImageSharp {
+              fluid(maxWidth: 1100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+           }
+         }
+      }
       field_contributions {
         processed
       }

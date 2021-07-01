@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const IndexPage = (props) => {
   const classes = useStyles();
-
+  console.log(props.data.allUserUser);
   return (
     <Layout>
       <Paper className={classes.root}>
@@ -33,12 +33,12 @@ const IndexPage = (props) => {
       <Box mt={3}>
         <Grid container spacing={1}>
         {
-          props.data.allUserUser.nodes.map(({ node: profile }) => (
+          props.data.allUserUser.nodes.map(profile => (
             <Grid item key={profile.display_name} xs={6} md={4}>
               <ProfileCard
-                name={profile.field_first_name+profile.field_last_name}
-                photo='Placeholder Photo'
-                path={profile.display_name}
+                name={profile.field_first_name ? profile.field_first_name : '' + ' ' + profile.field_last_name ? profile.field_last_name : ''}
+                picture={profile.relationships.user_picture}
+                path={profile.display_name ? profile.display_name : ''}
               />
             </Grid>
           ))
@@ -65,6 +65,17 @@ export const query = graphql`
         display_name
         field_first_name
         field_last_name
+        relationships {
+         user_picture {
+            localFile {
+             childImageSharp {
+               fluid(maxWidth: 1100) {
+                 ...GatsbyImageSharpFluid
+               }
+             }
+            }
+          }
+        }
       }
     }
   }

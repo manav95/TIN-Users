@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Img from 'gatsby-image';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileCard = (props) => {
   const classes = useStyles();
-  const RecipeLink = props => <Link to={props.path} {...props}>Read more</Link>;
+  const ProfileLink = props => <Link to={props.path} {...props}>Read more</Link>;
 
   return (
     <Card className={classes.card}>
@@ -38,12 +39,14 @@ const ProfileCard = (props) => {
           {props.name}
         </Typography>
         <Typography variant="h5" component="h2">
-          {props.photo}
+        {props.picture &&
+        <Img fluid={props.picture.localFile.childImageSharp.fluid} />
+      }
         </Typography>
         <Typography className={classes.pos} color="textSecondary" dangerouslySetInnerHTML={{ __html: 'TimeIsNowmember' }} />
       </CardContent>
       <CardActions>
-        <Button size="small" path={props.path} component={RecipeLink}>Read more</Button>
+        <Button size="small" path={props.path} component={ProfileLink}>Read more</Button>
       </CardActions>
     </Card>
   );
@@ -52,7 +55,7 @@ const ProfileCard = (props) => {
 ProfileCard.propTypes = {
   classes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  photo: PropTypes.object.isRequired,
+  picture: PropTypes.object,
   path: PropTypes.string.isRequired
 };
 
