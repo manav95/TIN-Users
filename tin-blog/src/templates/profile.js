@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileTemplate = (props) => {
   const classes = useStyles();
+  console.log(props)
   return (
     <Layout>
       <Helmet

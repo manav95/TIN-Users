@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 
 const IndexPage = (props) => {
   const classes = useStyles();
-  console.log(props.data.allUserUser);
   return (
     <Layout>
       <Paper className={classes.root}>

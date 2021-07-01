@@ -17,7 +17,6 @@ const ProfileListWrapper = () => (
       }
     `}
     render={data => {
-      console.log(data);
     <ProfileList profiles={data.allUserUser.nodes} />}}
   />
 );
