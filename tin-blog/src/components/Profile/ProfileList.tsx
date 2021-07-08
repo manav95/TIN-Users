@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, Link, graphql } from "gatsby"
+import { ReactNode } from 'react';
+
+function profileFunction(data): ReactNode {
+  return <ProfileList profiles={data.allUserUser.nodes} />;
+}
 
 const ProfileListWrapper = () => (
   <StaticQuery
@@ -16,8 +21,7 @@ const ProfileListWrapper = () => (
         }
       }
     `}
-    render={data => {
-    <ProfileList profiles={data.allUserUser.nodes} />}}
+    render={data => profileFunction(data)}
   />
 );
 
