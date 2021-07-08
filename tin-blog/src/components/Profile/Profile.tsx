@@ -12,8 +12,7 @@ const Profile = (props) => (
     <Typography variant="h2" paragraph>{props.displayName}</Typography>
     <GridList cols={11} cellHeight="auto">
     {props.picture && <ListItemAvatar>
-         <h3> Picture </h3>
-          <Avatar alt="Manifesting......." src={props.picture.localFile.childImageSharp.fluid.originalImg} />
+          <Avatar alt="Picture" src={props.picture.localFile.childImageSharp.fluid.originalImg} />
     </ListItemAvatar>}
       <ListItem>
       <ListItemText primary="First Name" secondary={props.firstName} />
@@ -43,7 +42,7 @@ const Profile = (props) => (
       <ListItemText primary="Gender" secondary={props.gender}/>
     </ListItem>
     <ListItem>
-      <ListItemText primary="Contribution" secondary={props.contribution}/>
+      <ListItemText primary="Contribution" secondary={props.contributions}/>
     </ListItem>
     </GridList>
   </>
@@ -60,7 +59,7 @@ Profile.propTypes = {
   notes: PropTypes.string,
   talent: PropTypes.object,
   gender: PropTypes.string,
-  contribution: PropTypes.object,
+  contributions: PropTypes.object,
   picture: PropTypes.object
 };
 

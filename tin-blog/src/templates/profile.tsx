@@ -10,8 +10,8 @@ import ProfileListWrapper from '../components/Profile/ProfileList';
 const useStyles = makeStyles(theme => ({
   root: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.length * 2,
+    paddingBottom: theme.spacing.length * 2,
   },
 }));
 
@@ -39,7 +39,7 @@ const ProfileTemplate = (props) => {
           picture={props.pageContext.picture}
         />
       </Paper>
-      <ProfileListWrapper>Additional User Profiles</ProfileListWrapper>
+      <ProfileListWrapper></ProfileListWrapper>
     </Layout>
   )
 };

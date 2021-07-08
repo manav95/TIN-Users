@@ -22,7 +22,7 @@ const IndexPage = (props) => {
     <Layout>
       <Paper className={classes.root}>
         <Typography variant="h2">Hi people</Typography>
-        <Typography variant="s`123ubtitle1" paragraph>
+        <Typography variant="subtitle1" paragraph>
           Welcome to your new Gatsby site using <a href="https://material-ui.com">Material UI</a> for the UI.
         </Typography>
         <Typography variant="subtitle1" paragraph>
