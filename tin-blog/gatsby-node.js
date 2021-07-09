@@ -10,7 +10,7 @@
  exports.createPages = ({ graphql, actions }) => {
    const { createPage } = actions;
 
-   return new Promise<void>((resolve, reject) => {
+   return new Promise((resolve, reject) => {
     graphql(`
       {
         allUserUser {
@@ -54,7 +54,7 @@
           path: path_alias,
           // This the path to the file that contains the React component
           // that will be used to render the HTML for the recipe.
-          component: path.resolve(`./src/templates/profile.js`),
+          component: path.resolve(`./src/templates/profile.ts`),
           context: {
             // Data passed to context is available in page queries as GraphQL
             // variables.

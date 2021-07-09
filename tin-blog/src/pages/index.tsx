@@ -64,17 +64,6 @@ export const query = graphql`
         display_name
         field_first_name
         field_last_name
-        relationships {
-         user_picture {
-            localFile {
-             childImageSharp {
-               fluid(maxWidth: 1100) {
-                 ...GatsbyImageSharpFluid
-               }
-             }
-            }
-          }
-        }
       }
     }
   }

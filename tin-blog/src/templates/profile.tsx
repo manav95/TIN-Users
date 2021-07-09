@@ -63,17 +63,6 @@ export const query = graphql`
       field_phone
       field_biography
       field_birthday
-      relationships {
-        user_picture {
-           localFile {
-            childImageSharp {
-              fluid(maxWidth: 1100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-           }
-         }
-      }
       field_contributions {
         processed
       }
