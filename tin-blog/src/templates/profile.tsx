@@ -17,12 +17,9 @@ const useStyles = makeStyles(theme => ({
 
 const ProfileTemplate = (props) => {
   const classes = useStyles();
-  console.log(props)
   return (
     <Layout>
-      <Helmet
-        displayName={`Name: ${props.pageContext.displayName}`}
-      />
+      <Helmet title={`Name: ${props.pageContext.displayName}`}/>
       <Paper className={classes.root}>
         <Profile
           displayName={props.pageContext.displayName}
@@ -47,7 +44,7 @@ const ProfileTemplate = (props) => {
 export default ProfileTemplate;
 
 export const query = graphql`
-  query ProfileTemplate($id: String!) {
+  query ProfileTemplate($id: String) {
     userUser(id: {eq: $id}) {
       id
       display_name

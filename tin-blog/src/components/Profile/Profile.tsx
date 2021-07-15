@@ -12,7 +12,7 @@ const Profile = (props) => (
     <Typography variant="h2" paragraph>{props.displayName}</Typography>
     <GridList cols={11} cellHeight="auto">
     {props.picture && <ListItemAvatar>
-          <Avatar alt="Picture" src={props.picture.localFile.childImageSharp.fluid.originalImg} />
+          <Avatar alt="Picture" src={props.picture.localFile.childImageSharp.gatsbyImageData.originalImg} />
     </ListItemAvatar>}
       <ListItem>
       <ListItemText primary="First Name" secondary={props.firstName} />

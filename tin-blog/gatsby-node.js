@@ -27,9 +27,7 @@
               user_picture {
                  localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1100) {
-                      originalImg
-                    }
+                    gatsbyImageData(layout: FIXED)
                   }
                  }
                }
@@ -49,13 +47,14 @@
     `).then(result => {
       result.data.allUserUser.nodes.forEach(node => {
         let path_alias = node.display_name
+        console.log(node);
         createPage({
           // This is the path, or route, at which the page will be visible.
           path: path_alias,
           // This the path to the file that contains the React component
           // that will be used to render the HTML for the recipe.
-          component: path.resolve(`./src/templates/profile.ts`),
-          context: {
+          component: path.resolve(`./src/templates/profile.tsx`),
+          conltext: {
             // Data passed to context is available in page queries as GraphQL
             // variables.
             id: node.id,

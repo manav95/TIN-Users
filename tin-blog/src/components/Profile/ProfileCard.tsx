@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -40,7 +40,7 @@ const ProfileCard = (props) => {
         </Typography>
         <Typography variant="h5" component="h2">
         {props.picture &&
-        <Img fluid={props.picture.localFile.childImageSharp.fluid} />
+        <GatsbyImage alt="unknown" image={props.picture.childImageSharp.gatsbyImageData} />
       }
         </Typography>
         <Typography className={classes.pos} color="textSecondary" dangerouslySetInnerHTML={{ __html: 'TimeIsNowmember' }} />
