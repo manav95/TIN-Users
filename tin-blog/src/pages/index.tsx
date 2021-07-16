@@ -6,6 +6,8 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Layout from '../components/layout'
 import ProfileCard from '../components/Profile/ProfileCard';
+import Seo from '../components/seo';
+import { siteMetadata } from '../../gatsby-config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +17,8 @@ const useStyles = makeStyles(theme => ({
 
 const IndexPage = (props) => {
   return (
+    <Layout>
+      <Seo title={siteMetadata.title} description={siteMetadata.description} />
       <Box mt={3}>
         <Grid container spacing={1}>
         {
@@ -32,6 +36,7 @@ const IndexPage = (props) => {
         }
         </Grid>
       </Box>
+    </Layout>
   );
 };
 
