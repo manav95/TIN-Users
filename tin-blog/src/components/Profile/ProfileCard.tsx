@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 const ProfileCard = (props) => {
   const classes = useStyles();
   const ProfileLink = props => <Link to={props.path} {...props}>Read more</Link>;
-
+  console.log(props.name);
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -53,7 +53,6 @@ const ProfileCard = (props) => {
 };
 
 ProfileCard.propTypes = {
-  classes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   picture: PropTypes.object,
   path: PropTypes.string.isRequired
