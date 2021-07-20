@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
 
@@ -29,5 +27,22 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
+    - name: Drupal Check
+      run: ddev launch
+
     - name: Install gatsby
       run: cd tin-blog && npm install
+
+    - name: Gatsby build
+      run: cd tin-blog && gatsby build
+
+    - name: Deploy to Staging server
+      uses: easingthemes/ssh-deploy@main
+      env:
+         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+         ARGS: "-i TWTmanav"
+         SOURCE: "./"
+         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+         REMOTE_USER: ${{ secrets.REMOTE_USER }}
+         REMOTE_PORT: 21098
+         TARGET: ${{ secrets.REMOTE_TARGET }}
