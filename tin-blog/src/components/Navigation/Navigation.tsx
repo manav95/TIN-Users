@@ -39,6 +39,42 @@ function Navigation(props) {
               Home
             </Button>
         </div>
+        <div>
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+            >
+              Calendar
+            </Button>
+        </div>
+        <div>
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+            >
+              Marketplace
+            </Button>
+        </div>
+        <div>
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+            >
+              Users
+            </Button>
+        </div>
+        <div>
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+            >
+              Projects
+            </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );

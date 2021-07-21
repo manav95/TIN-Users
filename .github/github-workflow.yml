@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Github Workflow
 
 on:
   push:
@@ -12,34 +12,27 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
-    - name: Drupal Check
-      run: ddev launch
-
-    - name: Install gatsby
-      run: cd tin-blog && npm install && gatsby build
-
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
       env:
          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-         ARGS: "-i TWTmanav"
          SOURCE: "./"
          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-         REMOTE_PORT: 21098
+         REMOTE_PORT: ${{ secrets.PORT }}
          TARGET: ${{ secrets.REMOTE_TARGET }}
+
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          composer update
+          composer validate --strict
+          composer install --prefer-dist --no-progress
+          ddev launch
+          cd tin-blog && npm install
+          cd tin-blog && gatsby serve
