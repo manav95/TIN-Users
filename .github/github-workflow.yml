@@ -31,10 +31,7 @@ jobs:
       run: ddev launch
 
     - name: Install gatsby
-      run: cd tin-blog && npm install
-
-    - name: Gatsby build
-      run: cd tin-blog && gatsby build
+      run: cd tin-blog && npm install && gatsby build
 
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
