@@ -12,8 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - uses: jonaseberle/github-action-setup-ddev@v1
-   
     - name: Composer update
       run: composer update
    
@@ -31,9 +29,8 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
-    - name: Drupal Check
-      run: ddev launch
+    
+    - uses: jonaseberle/github-action-setup-ddev@v1
 
     - name: Install gatsby
       run: cd tin-blog && npm install
