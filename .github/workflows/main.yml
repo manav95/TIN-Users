@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Composer update
+      run: composer update
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
