@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Github Workflow
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Composer update
       run: composer update
 
@@ -27,11 +27,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install dependencies
+    - name: Install PHP dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Install gatsby
-      run: cd tin-blog && npm install && gatsby build
+    - name: Install Node dependencies
+      run: cd tin-blog && npm install
+
+    - name: Install Gatsby
+      run: npm i -g gatsby-cli && gatsby build
 
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
