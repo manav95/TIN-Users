@@ -12,30 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Composer update
-      run: composer update
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install PHP dependencies
-      run: composer install --prefer-dist --no-progress
-
-    - name: Install Node dependencies
-      run: cd tin-blog && npm install && npm i -g gatsby-cli
-
-    - name: Install Gatsby
-      run: cd tin-blog && gatsby build
-
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
       env:
@@ -46,3 +22,17 @@ jobs:
          REMOTE_USER: ${{ secrets.REMOTE_USER }}
          REMOTE_PORT: 21098
          TARGET: ${{ secrets.REMOTE_TARGET }}
+
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: 21098
+        script: |
+          composer update
+          composer validate --strict
+          composer install --prefer-dist --no-progress
+          cd tin-blog && npm install
+          cd tin-blog && gatsby build
