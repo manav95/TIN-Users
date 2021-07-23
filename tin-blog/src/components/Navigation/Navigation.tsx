@@ -24,6 +24,7 @@ function Navigation(props) {
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
+        <img src={"../../images/tin-icon.png"} alt="website logo"/>
         <Typography
           variant="h6"
           className={classes.title}
@@ -42,7 +43,7 @@ function Navigation(props) {
         <div>
             <Button
               component={Link}
-              to="/"
+              to="/calendar"
               color="inherit"
             >
               Calendar
@@ -51,7 +52,7 @@ function Navigation(props) {
         <div>
             <Button
               component={Link}
-              to="/"
+              to="/marketplace"
               color="inherit"
             >
               Marketplace
@@ -60,7 +61,7 @@ function Navigation(props) {
         <div>
             <Button
               component={Link}
-              to="/"
+              to="/users"
               color="inherit"
             >
               Users
@@ -69,7 +70,7 @@ function Navigation(props) {
         <div>
             <Button
               component={Link}
-              to="/"
+              to="/projects"
               color="inherit"
             >
               Projects
