@@ -11,10 +11,13 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(5),
+    fontSize: '20px',
+    color: 'black'
   },
   title: {
-    flexGrow: 1,
+    marginLeft: -25,
+    marginRight: 190
   },
 }));
 
@@ -24,12 +27,13 @@ function Navigation(props) {
   return (
     <AppBar position="relative" className={classes.root}>
       <Toolbar>
-        <img src={tinIcon} alt={props.siteTitle}/>
+        <img src={tinIcon} alt={props.siteTitle} className={classes.title}/>
         <div>
             <Button
               component={Link}
               to="/"
               color="inherit"
+              className={classes.menuButton}
             >
               Home
             </Button>
@@ -39,6 +43,7 @@ function Navigation(props) {
               component={Link}
               to="/calendar"
               color="inherit"
+              className={classes.menuButton}
             >
               Calendar
             </Button>
@@ -48,6 +53,7 @@ function Navigation(props) {
               component={Link}
               to="/marketplace"
               color="inherit"
+              className={classes.menuButton}
             >
               Marketplace
             </Button>
@@ -57,6 +63,7 @@ function Navigation(props) {
               component={Link}
               to="/users"
               color="inherit"
+              className={classes.menuButton}
             >
               Users
             </Button>
@@ -66,6 +73,7 @@ function Navigation(props) {
               component={Link}
               to="/projects"
               color="inherit"
+              className={classes.menuButton}
             >
               Projects
             </Button>
