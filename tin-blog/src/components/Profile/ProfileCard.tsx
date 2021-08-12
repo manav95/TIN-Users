@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 const ProfileCard = (props) => {
   const classes = useStyles();
   const ProfileLink = props => <Link to={props.path} {...props}>Read more</Link>;
-  console.log(props.name);
   return (
     <Card className={classes.card}>
       <CardContent>
