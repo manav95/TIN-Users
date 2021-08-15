@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { GatsbyImage } from "gatsby-plugin-image";
+import Profile from './Profile';
 
 const useStyles = makeStyles(theme => ({
   card: {

@@ -1,7 +1,4 @@
 module.exports = {
-  flags: {
-    DEV_SSR: false
-  },
   siteMetadata: {
     title: `TimeIsNow`,
     description: `Saving the world, one StarPerson at a time.`,

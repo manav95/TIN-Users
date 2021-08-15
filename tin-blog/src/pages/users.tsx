@@ -1,32 +1,32 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { makeStyles } from '@material-ui/core/styles';
-
+import ProfileCard from '../components/Profile/ProfileCard';
 import Layout from '../components/layout'
-import { Paper } from '@material-ui/core';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2),
-  },
-}));
+import { Box, Card, CardActions, CardContent, Grid, Paper, Typography } from '@material-ui/core';
 
 const UserPage = (props) => {
-  const classes = useStyles();
   return (
     <Layout>
-      <Paper className={classes.root}>
+      <Box mt={3}>
+        <Grid container={true} spacing={1}>
         {
-              props.data.allUserUser.nodes.map(profile => {
-                let theName = (profile.field_first_name ? profile.field_first_name : '') + (profile.field_last_name ? profile.field_last_name : '');
-                <div>{ theName }</div>
-              })
+            props.data.allUserUser.nodes.map(profile => {
+              console.log(profile);
+              let theName = (profile.field_first_name ? profile.field_first_name : '') + (profile.field_last_name ? profile.field_last_name : '');
+              return <Grid item key={profile.display_name} xs={6} md={4}>
+                <ProfileCard
+                  name={theName}
+                  picture={profile.relationships ? profile.relationships.user_picture : undefined}
+                  path={profile.display_name ? profile.display_name : ''}
+                />
+              </Grid>
+            })
         }
-        </Paper>
+        </Grid>
+      </Box>
     </Layout>
   );
 };
-
 
 export default UserPage;
 
