@@ -6,6 +6,16 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 
 import Navigation from './Navigation/Navigation';
+import drupalOauth from './drupal-oauth/drupalOauth';
+import withDrupalOauthProvider from './drupal-oauth/withDrupalOauthProvider';
+
+// Initialize a new drupalOauth client which we can use to seed the context
+// provider.
+const drupalOauthClient = new drupalOauth({
+  drupal_root: 'https://tin-users.ddev.site',
+  client_id: '448d13ae-c82c-4401-863d-a2d95554ecaa',
+  client_secret: 'gatsby',
+});
 
 const Layout = (props) => {
   const {children} = props;
@@ -48,4 +58,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout;
+export default withDrupalOauthProvider(drupalOauthClient, Layout);
