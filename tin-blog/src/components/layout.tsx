@@ -13,7 +13,7 @@ import withDrupalOauthProvider from './drupal-oauth/withDrupalOauthProvider';
 // provider.
 const drupalOauthClient = new drupalOauth({
   drupal_root: 'https://tin-users.ddev.site',
-  client_id: '448d13ae-c82c-4401-863d-a2d95554ecaa',
+  client_id: '74ffd7ad-aca2-4074-9d32-98e8d565af8c',
   client_secret: 'gatsby',
 });
 

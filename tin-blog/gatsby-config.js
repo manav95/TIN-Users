@@ -4,16 +4,6 @@ module.exports = {
     description: `Saving the world, one StarPerson at a time.`,
     author: `TIN`,
   },
-  proxy: [
-    {
-       prefix: "/api",
-       url: "https://tin-users.ddev.site/",
-    },
-    {
-      prefix: "/oauth/token",
-      url: "https://tin-users.ddev.site/",
-   }
-  ],
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
