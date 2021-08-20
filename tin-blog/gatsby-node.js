@@ -7,6 +7,22 @@
 // You can delete this file if you're not using it
  const path = require(`path`);
 
+ /**
+  * Implements the onCreatePage node API.
+  */
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/user/)) {
+    page.matchPath = `/user/*`
+
+    // Update the page.
+    createPage(page)
+  }
+}
+
  exports.createPages = ({ graphql, actions }) => {
    const { createPage } = actions;
 
@@ -38,9 +54,6 @@
             field_phone
             field_biography
             field_birthday
-            field_contributions {
-              processed
-            }
           }
         }
       }
@@ -67,7 +80,6 @@
             notes: node.field_notes ? node.field_notes : '',
             talent: node.field_talents ? node.field_talents.processed : '',
             gender: node.field_gender ? node.field_gender : '',
-            contributions: node.field_contributions ? node.field_contributions.processed : '',
             picture: node.relationships ? node.relationships.user_picture : null
           },
         })

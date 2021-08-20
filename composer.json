@@ -25,6 +25,7 @@
         "drupal/mailchimp": "^2.0",
         "drupal/migrate_plus": "^5.1",
         "drupal/simple_oauth": "^5.0",
+        "drupal/time_picker": "^5.3",
         "drush/drush": "^10.6",
         "league/csv": "^9.7",
         "thinkshout/mailchimp-api-php": "^2.1"

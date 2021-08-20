@@ -32,7 +32,6 @@ const ProfileTemplate = (props) => {
           notes={props.pageContext.notes}
           talent={props.pageContext.talent}
           gender={props.pageContext.gender}
-          contributions={props.pageContext.contributions}
           picture={props.pageContext.picture}
         />
       </Paper>
@@ -60,9 +59,6 @@ export const query = graphql`
       field_phone
       field_biography
       field_birthday
-      field_contributions {
-        processed
-      }
     }
   }
 `;
