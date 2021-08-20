@@ -82,7 +82,7 @@ function Navigation(props) {
               Projects
             </Button>
           </div>
-          <Button variant="outlined" component={Link} to="/user/profile">My Account</Button>
+          <Button variant="outlined" component={Link} to="/user-profile">My Account</Button>
           <LogoutLink/>
       </Toolbar>
         :

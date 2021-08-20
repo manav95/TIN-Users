@@ -35,7 +35,7 @@ class Profile extends React.Component<ProfileType, {}, {}> {
 
     // Use this endpoint to figure out the ID of the current user.
     try {
-      let response = await fetch(`http://dev-gatsby-drupal-demo.pantheonsite.io/oauth/debug`, options);
+      let response = await fetch(`https://tin-users.ddev.site/oauth/debug`, options);
       userInfo = await response.json();
     } catch(err) {
       console.log(`There was an error accessing oauth/debug: ${err}`)
@@ -46,7 +46,7 @@ class Profile extends React.Component<ProfileType, {}, {}> {
         // This uses the JSON API ?filter= query string parameter to request
         // just the record for the user with a UID equal to what we retrieved
         // in the response above.
-        let response = await fetch(`http://dev-gatsby-drupal-demo.pantheonsite.io/jsonapi/user/user?filter[uid][value]=${userInfo.id}`, options);
+        let response = await fetch(`https://tin-users.ddev.site/jsonapi/user/user?filter[uid][value]=${userInfo.id}`, options);
         userData = await response.json();
       } catch(err) {
         console.log(`There was an error retrieving the user's profile data: ${err}`)
@@ -54,7 +54,7 @@ class Profile extends React.Component<ProfileType, {}, {}> {
     }
 
     const profile = userData.data.shift().attributes;
-
+    console.log(profile);
     if (profile.uid === userInfo.id) {
       this.setState({profile: profile});
     }
