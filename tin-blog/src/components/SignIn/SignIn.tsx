@@ -7,8 +7,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
+import { Toolbar } from '@material-ui/core';
 
 class PropertyType {
   drupalOauthClient: any;
@@ -51,10 +52,12 @@ class SignIn extends React.Component<PropertyType, {}, any> {
 
   render() {
     const { error, processing } = this.state;
-
     return (
       <>
+        <Toolbar>
+        <img src={tinIcon} alt="TIN"/>
         <Button onClick={this.handleClickOpen} variant="contained" color="primary">Log in</Button>
+        <Button onClick={this.handleClickOpen} variant="contained" color="primary">Register</Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -101,7 +104,8 @@ class SignIn extends React.Component<PropertyType, {}, any> {
                   </Button>
               }
           </DialogActions>
-        </Dialog>
+          </Dialog>
+          </Toolbar>
       </>
     );
   }

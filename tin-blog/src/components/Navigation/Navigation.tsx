@@ -8,6 +8,7 @@ import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 import SignIn from '../SignIn/SignIn';
 import LogoutLink from '../LogoutLink/LogoutLink';
+import Register from '../SignIn/Register';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -86,7 +87,10 @@ function Navigation(props) {
           <LogoutLink/>
       </Toolbar>
         :
-        <SignIn />
+         <div>
+         <SignIn />
+        <Register />
+        </div>
       }
     </AppBar>
   );
