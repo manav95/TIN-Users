@@ -8,24 +8,24 @@ import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 import SignIn from '../SignIn/SignIn';
 import LogoutLink from '../LogoutLink/LogoutLink';
-import Register from '../SignIn/Register';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(5),
-    fontSize: '20px',
-    color: 'black'
-  },
-  title: {
-    marginLeft: -25,
-    marginRight: 190
-  },
-}));
 
 function Navigation(props) {
+  const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(5),
+      fontSize: '20px',
+      color: 'black'
+    },
+    title: {
+      marginLeft: -25,
+      marginRight: 190
+    },
+  }));
+
   const classes = useStyles();
 
   return (
@@ -89,7 +89,6 @@ function Navigation(props) {
         :
          <div>
          <SignIn />
-        <Register />
         </div>
       }
     </AppBar>

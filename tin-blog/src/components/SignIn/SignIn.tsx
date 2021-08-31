@@ -9,7 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-import { Toolbar } from '@material-ui/core';
+import { Paper, Toolbar, Typography } from '@material-ui/core';
+import Layout from "../layout";
 
 class PropertyType {
   drupalOauthClient: any;
@@ -23,6 +24,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
     username: '',
     password: '',
     error: null,
+    registered: false
   };
 
   handleClickOpen = () => {
@@ -35,6 +37,19 @@ class SignIn extends React.Component<PropertyType, {}, any> {
 
   handleClose = () => {
     this.setState({ open: false, processing: false });
+  };
+
+  handleRegisterSubmit = () => {
+    this.setState({ processing: true });
+    const { username, password } = this.state;
+
+    this.props.drupalOauthClient.handle(username, password, '').then(() => {
+      this.setState({ open: false, processing: false });
+      this.props.updateAuthenticatedUserState(true)
+    }).catch((err: Error) => {
+       console.log(err);
+       this.setState({ error: err });
+    });
   };
 
   handleSubmit = () => {
@@ -50,6 +65,14 @@ class SignIn extends React.Component<PropertyType, {}, any> {
     });
   };
 
+  handleClickRegister = () => {
+    this.setState({ registered: true });
+  }
+  handleRegisterCancel = () => {
+    this.setState({ registered: false, processing: false });
+  };
+
+
   render() {
     const { error, processing } = this.state;
     return (
@@ -57,7 +80,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
         <Toolbar>
         <img src={tinIcon} alt="TIN"/>
         <Button onClick={this.handleClickOpen} variant="contained" color="primary">Log in</Button>
-        <Button onClick={this.handleClickOpen} variant="contained" color="primary">Register</Button>
+        <Button onClick={this.handleClickRegister} variant="contained" color="primary">Register</Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -101,6 +124,29 @@ class SignIn extends React.Component<PropertyType, {}, any> {
                   :
                   <Button onClick={this.handleSubmit} color="primary" variant="contained">
                     Log in
+                  </Button>
+              }
+          </DialogActions>
+          </Dialog>
+          <Dialog
+          open={this.state.registered}
+          onClose={this.handleRegisterCancel}
+          aria-labelledby="form-dialog-title"
+          >
+            <DialogTitle id="form-dialog-title">Register</DialogTitle>
+            <DialogContent>
+          <iframe src="https://tin-users.ddev.site/user/register" style={{ border: "solid 1px #777"}} width="800" height="600" frameBorder="0" scrolling="no"></iframe>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleRegisterCancel} color="default">
+                Cancel
+              </Button>
+              {
+                processing ?
+                  <CircularProgress />
+                  :
+                  <Button onClick={this.handleRegisterSubmit} color="primary" variant="contained">
+                    Register
                   </Button>
               }
           </DialogActions>
