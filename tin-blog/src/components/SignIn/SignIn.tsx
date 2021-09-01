@@ -135,8 +135,32 @@ class SignIn extends React.Component<PropertyType, {}, any> {
           >
             <DialogTitle id="form-dialog-title">Register</DialogTitle>
             <DialogContent>
-          <iframe src="https://tin-users.ddev.site/user/register" style={{ border: "solid 1px #777"}} width="800" height="600" frameBorder="0" scrolling="no"></iframe>
-            </DialogContent>
+            {error && <p>{error.message}</p>}
+            <DialogContentText>
+              Enter your username and password below to log in.
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              name="username"
+              label="Username"
+              type="text"
+              fullWidth
+              onChange={event =>
+                this.setState({ [event.target.name]: event.target.value })
+              }
+            />
+            <TextField
+              margin="dense"
+              name="password"
+              label="Password"
+              type="password"
+              fullWidth
+              onChange={event =>
+                this.setState({ [event.target.name]: event.target.value })
+              }
+            />
+          </DialogContent>
             <DialogActions>
               <Button onClick={this.handleRegisterCancel} color="default">
                 Cancel
