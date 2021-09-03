@@ -40,16 +40,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   };
 
   handleRegisterSubmit = () => {
-    this.setState({ processing: true });
-    const { username, password } = this.state;
-
-    this.props.drupalOauthClient.handle(username, password, '').then(() => {
-      this.setState({ open: false, processing: false });
-      this.props.updateAuthenticatedUserState(true)
-    }).catch((err: Error) => {
-       console.log(err);
-       this.setState({ error: err });
-    });
+    this.setState({ open: true });
   };
 
   handleSubmit = () => {
@@ -170,7 +161,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
                   <CircularProgress />
                   :
                   <Button onClick={this.handleRegisterSubmit} color="primary" variant="contained">
-                    Register
+                    Register- Reenter username and password
                   </Button>
               }
           </DialogActions>

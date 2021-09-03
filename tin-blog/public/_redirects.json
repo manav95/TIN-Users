@@ -1,0 +1,1 @@
+{"redirects":[],"rewrites":[{"fromPath":"/user/*","toPath":"/user-profile/"},{"fromPath":"/user/*","toPath":"/users/"}]}
