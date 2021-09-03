@@ -1,0 +1,38 @@
+name: Github Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Deploy to Staging server
+      uses: easingthemes/ssh-deploy@main
+      env:
+         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+         SOURCE: "./"
+         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+         REMOTE_USER: ${{ secrets.REMOTE_USER }}
+         REMOTE_PORT: ${{ secrets.PORT }}
+         TARGET: ${{ secrets.REMOTE_TARGET }}
+
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          composer update
+          composer validate --strict
+          composer install --prefer-dist --no-progress
+          ddev launch
+          cd tin-blog && npm install
+          cd tin-blog && gatsby serve
