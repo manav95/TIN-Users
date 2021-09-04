@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-import { Paper, Toolbar, Typography } from '@material-ui/core';
+import { makeStyles, Paper, Toolbar, Typography } from '@material-ui/core';
 import Layout from "../layout";
 
 class PropertyType {
@@ -40,6 +40,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   };
 
   handleRegisterSubmit = () => {
+    this.setState({ registered: false });
     this.setState({ open: true });
   };
 
@@ -75,7 +76,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
+            aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Log in</DialogTitle>
           <DialogContent>
@@ -120,38 +121,15 @@ class SignIn extends React.Component<PropertyType, {}, any> {
           </DialogActions>
           </Dialog>
           <Dialog
-          open={this.state.registered}
-          onClose={this.handleRegisterCancel}
-          aria-labelledby="form-dialog-title"
-          >
+            open={this.state.registered}
+            onClose={this.handleRegisterCancel}
+            aria-labelledby="form-dialog-title"
+            style={{height: '5000'}}>
             <DialogTitle id="form-dialog-title">Register</DialogTitle>
             <DialogContent>
             {error && <p>{error.message}</p>}
-            <DialogContentText>
-              Enter your username and password below to log in.
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              name="username"
-              label="Username"
-              type="text"
-              fullWidth
-              onChange={event =>
-                this.setState({ [event.target.name]: event.target.value })
-              }
-            />
-            <TextField
-              margin="dense"
-              name="password"
-              label="Password"
-              type="password"
-              fullWidth
-              onChange={event =>
-                this.setState({ [event.target.name]: event.target.value })
-              }
-            />
-          </DialogContent>
+            <iframe src="https://tin-users.ddev.site/user/register" style={{ border: "solid 1px #777", overflow: 'scroll', width: '100%', height: '100%' }}></iframe>
+            </DialogContent>
             <DialogActions>
               <Button onClick={this.handleRegisterCancel} color="default">
                 Cancel
