@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
-import SignIn from '../SignIn/SignIn';
+import SignIn from '../Authentication/SignIn';
 import LogoutLink from '../LogoutLink/LogoutLink';
 
 

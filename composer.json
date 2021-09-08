@@ -24,6 +24,7 @@
         "drupal/jsonapi_extras": "^3.17",
         "drupal/mailchimp": "^2.0",
         "drupal/migrate_plus": "^5.1",
+        "drupal/restui": "^1.20",
         "drupal/seckit": "^2.0",
         "drupal/simple_oauth": "^5.0",
         "drupal/time_picker": "^5.3",
