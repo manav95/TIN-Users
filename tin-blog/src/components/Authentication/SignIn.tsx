@@ -10,6 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 import { Toolbar } from '@material-ui/core';
+import axios from 'axios';
 
 class PropertyType {
   drupalOauthClient: any;
@@ -27,10 +28,14 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   };
 
   submitLogin = () => {
-    await axios.get({
-
+    const response = await axios({method: 'post', url: 'https://tin-users.ddev.site/user/register?_format=json',
+      data: {"name": ["Quetzalcoatl"],
+      "mail": ["therp@therp.com"],
+      "field_talents": []}
     })
-    return true;
+    if (response.status === 200) {
+      return true;
+    }
     else {
       return false;
     }
