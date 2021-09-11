@@ -45,8 +45,10 @@ class SignIn extends React.Component<PropertyType, {}, any> {
     this.setState({ registered: false, processing: true });
     let result = await this.props.drupalOauthClient.register(this.state.username, this.state.password, this.state.mail);
     if (result) {
-        this.setState({ open: false, processing: false });
         this.props.updateAuthenticatedUserState(true)
+    }
+    else {
+      this.setState({ "error": 'Registration failed!' });
     }
   };
 

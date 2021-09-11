@@ -161,6 +161,7 @@ class drupalOauth {
     const response = await axios({method: 'post', url: 'https://tin-users.ddev.site/user/register',
       data: {"name": [username],
         "mail": [mail],
+        "pass": [password],
         "field_talents": []
       },
       params: {"_format": "json"}
