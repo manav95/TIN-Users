@@ -1,4 +1,5 @@
 import { string } from "prop-types";
+import axios from 'axios';
 
 class drupalOauth {
   private config: any;
@@ -153,6 +154,25 @@ class drupalOauth {
       throw new Error(response.status.toString() + response.statusText);
     }
   };
+
+  async register(username, password, mail) {
+    console.log(username);
+    console.log(mail);
+    const response = await axios({method: 'post', url: 'https://tin-users.ddev.site/user/register',
+      data: {"name": [username],
+        "mail": [mail],
+        "field_talents": []
+      },
+      params: {"_format": "json"}
+    })
+    if (response.status === 200) {
+      console.log(response);
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 
   storeToken(json) {
     let token = Object.assign({}, json);

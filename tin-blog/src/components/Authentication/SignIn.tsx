@@ -23,23 +23,11 @@ class SignIn extends React.Component<PropertyType, {}, any> {
     processing: false,
     username: '',
     password: '',
+    mail: '',
     error: null,
     registered: false
   };
 
-  submitLogin = () => {
-    const response = await axios({method: 'post', url: 'https://tin-users.ddev.site/user/register?_format=json',
-      data: {"name": ["Quetzalcoatl"],
-      "mail": ["therp@therp.com"],
-      "field_talents": []}
-    })
-    if (response.status === 200) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -55,7 +43,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
 
   handleRegisterSubmit = async () => {
     this.setState({ registered: false, processing: true });
-    let result = await this.submitLogin();
+    let result = await this.props.drupalOauthClient.register(this.state.username, this.state.password, this.state.mail);
     if (result) {
         this.setState({ open: false, processing: false });
         this.props.updateAuthenticatedUserState(true)
@@ -147,7 +135,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
           <DialogContent>
             {error && <p>{error.message}</p>}
             <DialogContentText>
-              Enter your username and password below to register.
+              Enter your username,password, and email below to register. You will then be logged in if the operation is successful.
             </DialogContentText>
             <TextField
               autoFocus
@@ -159,12 +147,23 @@ class SignIn extends React.Component<PropertyType, {}, any> {
               onChange={event =>
                 this.setState({ [event.target.name]: event.target.value })
               }
-            />
-            <TextField
+              />
+              <TextField
+              autoFocus
               margin="dense"
               name="password"
               label="Password"
-              type="password"
+              type="text"
+              fullWidth
+              onChange={event =>
+                this.setState({ [event.target.name]: event.target.value })
+              }
+            />
+            <TextField
+              margin="dense"
+              name="mail"
+              label="Email"
+              type="text"
               fullWidth
               onChange={event =>
                 this.setState({ [event.target.name]: event.target.value })
