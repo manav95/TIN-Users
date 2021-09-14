@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 
 const Marketplace = (props) => (
    <>
@@ -14,4 +15,4 @@ const Marketplace = (props) => (
 Marketplace.propTypes = {
 };
 
-export default Marketplace;
+export default withDrupalOauthConsumer(Marketplace);
