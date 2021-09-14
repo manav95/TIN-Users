@@ -43,18 +43,19 @@ class SignIn extends React.Component<PropertyType, {}, any> {
 
   handleRegisterSubmit = async () => {
     try {
-      this.setState({ registered: false, processing: true });
+      this.setState({ processing: true });
       let result = await this.props.drupalOauthClient.register(this.state.username, this.state.password, this.state.mail);
       if (result) {
         this.props.updateAuthenticatedUserState(true)
+        this.setState({ registered: false, processing: false });
       }
       else {
-        this.setState({ "error": 'Registration failed!' });
+        this.setState({ error: { message: 'Registration failed, please try again later!' }, processing: false });
       }
     }
     catch (err) {
       console.log(err);
-      this.setState({ registered: false, processing: true });
+      this.setState({ error: { message: 'Registration failed, please try again later!' }, processing: false });
     }
   };
 
@@ -75,7 +76,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   }
 
   handleRegisterCancel = () => {
-    this.setState({ registered: false, processing: false });
+    this.setState({ registered: false, processing: false, error: null });
   };
 
   render() {
@@ -142,7 +143,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
           <DialogContent>
             {error && <p>{error.message}</p>}
             <DialogContentText>
-              Enter your username,password, and email below to register. You will then be logged in if the operation is successful.
+              Enter your username, password, and email below to register. You will then be logged in if the operation is successful.
             </DialogContentText>
             <TextField
               autoFocus
