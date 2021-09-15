@@ -6,6 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 
 const Points= (props) => (
    <>
@@ -15,4 +16,4 @@ const Points= (props) => (
 Points.propTypes = {
 };
 
-export default Points;
+export default withDrupalOauthConsumer(Points);

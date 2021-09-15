@@ -26,6 +26,7 @@ const withDrupalOauthProvider = (client, Component) => {
       userAuthenticated: !!client.isLoggedIn(),
       drupalOauthClient: client,
       updateAuthenticatedUserState: (newState) => {
+        console.log(newState);
         this.setState({userAuthenticated: newState});
       },
     };

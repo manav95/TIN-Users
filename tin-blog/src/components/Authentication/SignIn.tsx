@@ -10,7 +10,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import tinIcon from './tin-icon.png';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 import { Toolbar } from '@material-ui/core';
-import axios from 'axios';
 
 class PropertyType {
   drupalOauthClient: any;
@@ -25,7 +24,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
     password: '',
     mail: '',
     error: null,
-    registered: false
+    registering: false
   };
 
 
@@ -47,7 +46,9 @@ class SignIn extends React.Component<PropertyType, {}, any> {
       let result = await this.props.drupalOauthClient.register(this.state.username, this.state.password, this.state.mail);
       if (result) {
         this.props.updateAuthenticatedUserState(true)
-        this.setState({ registered: false, processing: false });
+        this.setState({ registering: false, processing: false });
+        let autoLogin = await this.props.drupalOauthClient.handleLogin(this.state.username, this.state.password, 'gatsby_client')
+        console.log(autoLogin);
       }
       else {
         this.setState({ error: { message: 'Registration failed, please try again later!' }, processing: false });
@@ -62,7 +63,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   handleSubmit = () => {
     this.setState({ processing: true });
     const { username, password } = this.state;
-    this.props.drupalOauthClient.handleLogin(username, password, '').then(() => {
+    this.props.drupalOauthClient.handleLogin(username, password, 'gatsby_client').then(() => {
       this.setState({ open: false, processing: false });
       this.props.updateAuthenticatedUserState(true)
     }).catch((err: Error) => {
@@ -72,11 +73,11 @@ class SignIn extends React.Component<PropertyType, {}, any> {
   };
 
   handleClickRegister = () => {
-    this.setState({ registered: true });
+    this.setState({ registering: true });
   }
 
   handleRegisterCancel = () => {
-    this.setState({ registered: false, processing: false, error: null });
+    this.setState({ registering: false, processing: false, error: null });
   };
 
   render() {
@@ -135,7 +136,7 @@ class SignIn extends React.Component<PropertyType, {}, any> {
           </DialogActions>
           </Dialog>
           <Dialog
-          open={this.state.registered}
+          open={this.state.registering}
           onClose={this.handleRegisterCancel}
             aria-labelledby="form-dialog-title"
         >

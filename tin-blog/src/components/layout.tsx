@@ -14,7 +14,7 @@ import withDrupalOauthProvider from './drupal-oauth/withDrupalOauthProvider';
 const drupalOauthClient = new drupalOauth({
   drupal_root: 'https://tin-users.ddev.site',
   client_id: '74ffd7ad-aca2-4074-9d32-98e8d565af8c',
-  client_secret: 'gatsby',
+  client_secret: 'abc123',
 });
 
 const Layout = (props) => {

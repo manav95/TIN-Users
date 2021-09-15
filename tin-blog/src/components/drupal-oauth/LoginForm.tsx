@@ -19,7 +19,8 @@ class LoginForm extends React.Component<PropertyType, {}, any> {
     const { username, password } = this.state;
 
     try {
-      await this.props.drupalOauthClient.handleLogin(username, password, '');
+      let result = await this.props.drupalOauthClient.handleLogin(username, password, 'gatsby_client');
+      console.log(result);
       this.setState({ processing: false });
       this.props.updateAuthenticatedUserState(true);
     } catch(err) {

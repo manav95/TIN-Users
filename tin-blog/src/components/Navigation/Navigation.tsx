@@ -27,6 +27,7 @@ function Navigation(props) {
   }));
 
   const classes = useStyles();
+  console.log(props.userAuthenticated);
 
   return (
     <AppBar position="relative" className={classes.root}>

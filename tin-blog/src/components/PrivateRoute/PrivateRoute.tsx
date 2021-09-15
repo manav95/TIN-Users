@@ -4,6 +4,7 @@ import { navigate } from 'gatsby';
 import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 
 const PrivateRoute = ({ component: Component, location, userAuthenticated, ...rest }) => {
+  console.log(userAuthenticated);
   if (!userAuthenticated) {
     // If we’re not logged in, redirect to the home page.
     navigate(`/`)
