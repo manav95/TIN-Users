@@ -6,8 +6,8 @@ import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
 const LogoutLink = (props) => {
   if (props.drupalOauthClient) {
     return(
-        <Button
-        variant="outlined"
+      <Button
+        className={props.className}
         onClick={async () => {
           await props.drupalOauthClient.handleLogout();
           props.updateAuthenticatedUserState(false);

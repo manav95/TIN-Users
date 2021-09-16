@@ -84,8 +84,12 @@ function Navigation(props) {
               Projects
             </Button>
           </div>
-          <Button variant="outlined" component={Link} to="/user-profile">My Account</Button>
-          <LogoutLink/>
+          <div>
+          <Button component={Link} className={classes.menuButton} to="/user-profile">My Account</Button>
+          </div>
+          <div>
+          <LogoutLink className={classes.menuButton}/>
+          </div>
       </Toolbar>
         :
          <div>

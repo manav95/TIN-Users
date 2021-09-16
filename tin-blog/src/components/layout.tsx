@@ -37,12 +37,13 @@ const Layout = (props) => {
             title={data.site.siteMetadata.title}
             meta={[
               {name: 'description', content: 'Sample'},
-              {name: 'keywords', content: 'sample, something'},
+              { name: 'keywords', content: 'sample, something' },
+              { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1'}
             ]}
           >
             <html lang="en"/>
           </Helmet>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl">
             <Navigation siteTitle={data.site.siteMetadata.title}/>
             <Box component="main">
               {children}
