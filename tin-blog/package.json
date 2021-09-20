@@ -28,6 +28,7 @@
     "react-helmet": "^6.1.0",
     "react-image": "^4.0.3",
     "react-oauth-flow": "^1.2.0",
+    "react-slideshow-image": "^3.5.0",
     "typescript": "^4.3.5"
   },
   "devDependencies": {

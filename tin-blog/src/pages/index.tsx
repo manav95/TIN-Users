@@ -11,6 +11,13 @@ const useStyles = makeStyles(theme => ({
     color: "black"
   },
 }));
+const slideImages = [
+  'https://timein2.weebly.com/uploads/7/5/7/4/75746837/published/photo-2021-08-20-13-15-08.jpeg?1629490901',
+  'https://timein2.weebly.com/uploads/7/5/7/4/75746837/published/photo-2021-08-20-13-15-05.jpeg?1629490548',
+  'https://timein2.weebly.com/uploads/7/5/7/4/75746837/published/photo-2021-08-20-13-15-13.jpeg?1629491008',
+  'https://timein2.weebly.com/uploads/7/5/7/4/75746837/editor/photo-2021-08-20-13-15-10.jpeg?1629491047'
+];
+
 
 const IndexPage = (props) => {
   const classes = useStyles();
@@ -19,11 +26,17 @@ const IndexPage = (props) => {
       <Seo title={siteMetadata.title} description={siteMetadata.description} />
       <Paper className={classes.root}>
       <Typography variant="body1" paragraph>
-          As a nonprofit organization, our mission to equip and empower communities with the tools and conducive environment vital to achieving the highest level of human potential in today’s time. We aim to fix
-          the issues and challenges of the world from the bottom up, not through top-down processes or divisive politics. We bring people together to harness their potential and become their highest selves
-          through service to humanity, through art, through culture, through fostering peace and unity.
-      </Typography>
+          <h1> Our Mission and Vision </h1>
+          Through our various festivals and retreats where we teach ancient wisdoms from lost civilizations, we seek to bring humanity back to a deeper connection and appreciation for our planet, the cosmos and ourselves.<br/> <br/>As a nonprofit, our mission is to equip and empower people with the tools and conducive environment vital to achieving the highest level of human potential in today’s time.<br/> <br/>
+      </div>
+          <h1> How we are making this happen </h1><br /> <br />
+          <b>On the physical level -</b> In addition to organizing impactful socially and environmentally conscious festivals, TIN plans to build self-sustainable, self-governing communities/retreat centers which host events, seminars, workshops, retreats, ceremonies, festivals, etc. for attendees from around the world that at the same time operate as community centers providing ongoing services to the local/indigenous people of a given center’s region. The centers provide alternative healing, education on health, wellness, fitness, arts, crafts, agriculture, trade, etc., basically all practical and relevant tools to help people live abundantly in today’s world. The first of its kind being in Hawaii, with Nicaragua, Belize, Israel, and Palestine to follow and then the rest of the world.<br/> <br/>
+          <b>On the spiritual level -</b> Through the use of ancient wisdoms from various lost cultures, we are bringing humanity back to a much deeper connection with mother earth, the cosmos and ourselves. We are weaving the matrix of our consciousness and turning ON the light of the flower of life that surrounds our planet earth<br/><br/>
+          <b>On the digital plane –</b> Many of the social platforms out there today manipulate, rip off the user and use their data and intellectual property as currency. Our platform will do the opposite. We are creating an online platform that connects people around the world and elevates their individual world improvement projects. The platform will do this and more and is already in the development phase. We know this is partly a digital world and therefore say "As on the ground, so online."<br/> <br/>
+          <b>WE ARE NOT LEAVING ANYONE BEHIND :)</b>
+          </Typography>
       </Paper>
+
     </Layout>
   );
 };
